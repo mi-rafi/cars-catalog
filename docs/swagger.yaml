@@ -1,0 +1,182 @@
+basePath: /
+definitions:
+  api.CarJSON:
+    properties:
+      mark:
+        type: string
+      model:
+        type: string
+      owner:
+        $ref: '#/definitions/api.PeopleJSON'
+      regNum:
+        type: string
+      year:
+        type: integer
+    type: object
+  api.PeopleJSON:
+    properties:
+      name:
+        type: string
+      patronymic:
+        type: string
+      surname:
+        type: string
+    type: object
+  api.RegNumRequestJSON:
+    properties:
+      regNums:
+        items:
+          type: string
+        type: array
+    type: object
+host: localhost:9000
+info:
+  contact: {}
+  description: This is a sample car's server.
+  title: Car API
+  version: "1.0"
+paths:
+  /car:
+    delete:
+      consumes:
+      - '*/*'
+      parameters:
+      - description: car's param registration number
+        in: path
+        name: reg_num
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: error
+          schema:
+            type: string
+        "500":
+          description: error
+          schema:
+            type: string
+      summary: Delete car by registration namber.
+    get:
+      consumes:
+      - '*/*'
+      description: method to get some cars from database with filter and pagination.
+        If filter is empty this method return all cars.
+      parameters:
+      - description: limit of responce size
+        in: query
+        name: limit
+        type: integer
+      - description: offset of responce for database
+        in: query
+        name: offset
+        type: integer
+      - description: car's filter param year
+        in: query
+        name: year
+        type: integer
+      - description: car's filter param registration number
+        in: query
+        name: reg_num
+        type: string
+      - description: car's filter param mark
+        in: query
+        name: mark
+        type: string
+      - description: car's filter param model
+        in: query
+        name: model
+        type: string
+      - description: car's filter param owner's name
+        in: query
+        name: name
+        type: string
+      - description: car's filter param owner's surname
+        in: query
+        name: surname
+        type: string
+      - description: car's filter param owner's patronymic
+        in: query
+        name: patronymic
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/api.CarJSON'
+        "400":
+          description: error
+          schema:
+            type: string
+        "500":
+          description: error
+          schema:
+            type: string
+      summary: Get cars with filter
+    patch:
+      consumes:
+      - application/json
+      parameters:
+      - description: 'new car''s version '
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/api.CarJSON'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+        "400":
+          description: error
+          schema:
+            type: string
+        "500":
+          description: error
+          schema:
+            type: string
+      summary: Update new cars.
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: new car's registraton number
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/api.RegNumRequestJSON'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+        "400":
+          description: error
+          schema:
+            type: string
+        "500":
+          description: error
+          schema:
+            type: string
+      summary: Add new cars.
+  /health:
+    get:
+      consumes:
+      - '*/*'
+      description: get the status of server.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+      summary: Show the status of server.
+schemes:
+- http
+swagger: "2.0"

@@ -1,0 +1,8 @@
+imposters_path: .
+port: 3000
+host: "localhost"
+watcher: false
+cors:
+  methods: []
+  origins: ["*"]
+secure: true

@@ -1,0 +1,99 @@
+[
+    {
+        "request": {
+            "method": "GET",
+            "endpoint": "/info",
+            "params": {
+                "regNum" : "X123XX150"
+            }             
+        },
+        "response": {
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": "{\"regNum\": \"X123XX150\",\"mark\": \"Lada\",\"model\": \"Vest\",\"year\": 2002,\"owner\": {\"name\": \"Ivan\",\"surname\": \"Ivan\",\"patronymic\": \"Ivan\"}}"
+        }
+    },
+    {
+        "request": {
+            "method": "GET",
+            "endpoint": "/info",    
+            "params": {
+                "regNum" : "T123TT150"
+            }        
+        },
+        "response": {
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": "{\"regNum\": \"T123TT150\",\"mark\": \"Opel\",\"model\": \"Pole\",\"year\": 2002,\"owner\": {\"name\": \"Oleg\",\"surname\": \"Oleg\",\"patronymic\": \"Oleg\"}}"
+        }
+    },
+    {
+        "request": {
+            "method": "GET",
+            "endpoint": "/info",  
+            "params": {
+                "regNum" : "A123AA23"
+            }             
+        },
+        "response": {
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": "{\"regNum\": \"A123AA23\",\"mark\": \"Lada\",\"model\": \"0015\",\"year\": 1999,\"owner\": {\"name\": \"Luffy\",\"surname\": \"Monkey\"}}"
+        }
+    },
+    {
+        "request": {
+            "method": "GET",
+            "endpoint": "/info",
+            "params": {
+                "regNum" : "A432AA23"
+            }                
+        },
+        "response": {
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": "{\"regNum\": \"A432AA23\",\"mark\": \"Thousand\",\"model\": \"Sunny\",\"owner\": {\"name\": \"Luffy\",\"surname\": \"Monkey\"}}"
+        }
+    },
+    {
+        "request": {
+            "method": "GET",
+            "endpoint": "/info",
+            "params": {
+                "regNum" : "I123II23"
+            }                
+        },
+        "response": {
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": "{\"regNum\": \"I123II23\",\"mark\": \"INVALID\",\"owner\": {\"name\": \"Invalid\"}}"
+        }
+    },
+    {
+        "request": {
+            "method": "GET",
+            "endpoint": "/info",
+            "params": {
+                "regNum" : "{_id:\\w\\d{3}\\w{2}\\d{1,3}}"
+            }            
+        },
+        "response": {
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json"
+            },
+            "body": "{\"regNum\": \"A432AA25\",\"mark\": \"Thousand\",\"model\": \"Sunny\",\"owner\": {\"name\": \"Luffy\",\"surname\": \"Monkey\"}}"
+        }
+    }
+]
+

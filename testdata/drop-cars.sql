@@ -1,0 +1,2 @@
+DELETE FROM Car;
+DELETE FROM People;
